@@ -1,3 +1,6 @@
-Define python source code to evaluate goal models. Typically the models will be in text form and the output is either text or a DOT (Graphviz) file. The intention is to capture the algorithm for evaluation, and not to provide a comfortable UI experience.
+Define python source code to evaluate goal models. Typically the models will be in text form and the output is either text or a DOT (Graphviz) file. The intention is to capture the algorithm for evaluation, 
+and not to provide a comfortable UI experience.
 
 Neil Ernst 
+
+test
