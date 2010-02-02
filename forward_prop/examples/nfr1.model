@@ -1,0 +1,70 @@
+increase return on investment (GM):0:0
+increase sales volume:0:0
+increase profit per vehicle:0:0
+increase customer appeal:0:0
+expand markets:.3:0
+increase sales price:0:.5
+increase foreign earnings:0:.9
+lower production costs:0:0
+increase high margin sales:0:.6
+reduce operating costs:0:0
+lower environment impact:.9:0
+lower purchase costs:0:0
+keep labour costs low:0:.9
+improve economies of production:0:0
+improve mileage:0:0
+lower gas price:.8:0
+offer rebates:.3:0
+lower loan interest rates:0:0
+lower sales price:.8:0
+reduce raw materials costs:0:0
+outsource units of production:0:0
+gas price rises:0:0
+lower Japanese interest rates:0:0
+US gas price rises:0:0
+Japanese gas price rises:0:0
+Yen rises:0:0
+Japanese rates rise:0:0
+improve car quality:0:0
+improve car services:0:0
+increase customer loyalty:0:0
+increase Toyota sales:0:0
+increase VW sales:0:0
+increase sales volume:increase return on investment (GM):and
+increase profit per vehicle:increase return on investment (GM):and
+expand markets:increase sales volume:or
+increase customer appeal:increase sales volume:or
+reduce operating costs:increase customer appeal:or
+lower environment impact:increase customer appeal:or
+lower purchase costs:increase customer appeal:or
+lower gas price:reduce operating costs:or
+improve mileage:reduce operating costs:or
+offer rebates:lower purchase costs:or
+lower loan interest rates:lower purchase costs:or
+lower sales price:lower purchase costs:or
+increase sales price:increase profit per vehicle:or
+increase foreign earnings:increase profit per vehicle:or
+lower production costs:increase profit per vehicle:or
+increase high margin sales:increase profit per vehicle:or
+keep labour costs low:lower production costs:and
+improve economies of production:lower production costs:and
+reduce raw materials costs:improve economies of production:or
+outsource units of production:improve economies of production:or
+increase customer loyalty:increase sales volume:.4:.4
+increase sales volume:increase Toyota sales:-0.6:0
+increase Toyota sales:increase VW sales:-0.6:0
+increase VW sales:increase sales volume:-0.6:0
+increase sales price:increase customer loyalty:-0.5:-0.5
+improve car quality:increase customer loyalty:.8:.8
+improve car services:increase customer loyalty:.7:.7
+lower environment impact:increase customer loyalty:.4:.4
+increase sales price:improve car services:.3:.3
+keep labour costs low:improve car quality:-0.7:-0.7
+improve economies of production:lower purchase costs:.8:.8
+Yen rises:increase foreign earnings:.8:.8
+lower Japanese interest rates:lower sales price:.4:.4
+Japanese rates rise:lower Japanese interest rates:-0.8:-0.8
+Japanese rates rise:Yen rises:.6:.6
+Japanese gas price rises:gas price rises:.6:.6
+US gas price rises:gas price rises:.6:.6
+gas price rises:lower gas price:-0.8:-0.8

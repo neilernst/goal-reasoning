@@ -1,0 +1,7 @@
+model.py -- convert quantitative Giorgini models (2003) to dot files and do reasoning forward prop.
+*.dat -- input to model.py. Format is:
+node<src>|node<target>|<link type> OR
+node|sat value|den value
+nfr.py -- use NFR models
+*.model -- input to nfr.py
+
