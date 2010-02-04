@@ -1,0 +1,25 @@
+/Applications/nGRTool/solver/goalsolve.mac -n /Applications/nGRTool/solver/new.goal.txt /Applications/nGRTool/solver/new.goal.txt.des /Applications/nGRTool/solver/new.goal.txt.in
+
+Input goals are: 
+G3 G4 
+
+Building the SAT Formula... 
+- adding invariants... done
+- adding relation axioms... done
+- adding backward propagation axioms... done
+- adding users' desiderata and constraint axioms... done
+- adding conflict avoiding axioms... done
+done
+
+Calling the SAT solver Chaff:
+./asap.mac wff > ChaffResult
+...
+done.
+
+Decoding the result... done
+
+++++++++++++++++++++++++++++++++++
++ The problem admits solutions   +
+++++++++++++++++++++++++++++++++++
+File 'Result' produced
+

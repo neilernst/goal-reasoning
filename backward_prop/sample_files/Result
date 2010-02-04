@@ -1,0 +1,6 @@
+        PD 0 ; 
+TS 1 ;         
+        PD 2 ; 
+TS 3 ; PD 3 ; INPUT
+TS 4 ;         INPUT
+
