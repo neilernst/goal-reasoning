@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 
+%%%              GOALSOLVE & GOALMINSOLVE
+%%% 
+%%%                by Roberto Sebastiani
+%%%                 University of Trento
+%%%                  rseba@dit.unitn.it
+%%%             http://www.dit.unitn.it/~rseba
+%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+=====================Legal Notice============================
+Disclaimer: The author and University of Trento shall not be hold 
+responsable for any damage caused by using or being unable to use this
+software. The software and documentation is provided "AS IS"
+
+This software is for research and educational purpose only. No 
+commercial use is allowed without written permission from 
+the author and University of Trento.
+=============================================================
+
+This codes describes the implementation of the goalsolve and goalminsolve tools
+as described in [Giorgini, Mylopoulous & Sebastiani, submitted to ER03].
+
+This is the first public release of the source code for goalsolve and goalminsolve. This
+code is a preliminary version. This version shall only be regarded as a
+prototype. I don't have any documentations. But if you have any 
+questions about it, you can ask me and I will try to answer to them ASAP.
+
+Because this is basically a development snapshot, it may have some redundent 
+data structures and all kinds of useless staff. I particular, as both  
+time efficiency and memory usage of the encoder are not relevant issues, 
+I did not optimize them, and it may be the case that there are some memory 
+leaks around.
+
+You should have no problem to compile it under x86 Linux using g++. 
+I tried no other platform. The code is fairly simple, and basically implemented what
+was discribed in the paper. 
+
+Goalsolve calls the SAT solver chaff by Lintao Zhang from Princeton University.
+(http://ee.princeton.edu/~lintaoz/)
+Chaff is called as a linux command, and the dialogue between Goalsolver and chaff 
+is performed via files. The correctness of Goalsolver relies on that of chaff. 
+Goalsolver recognizes the output of the chaff version 2001.6.15.
+(whose code can be found in the directory "Chaff"). For different versions of chaff,
+it may be the case that one has to readapt the decoder (file decoder.cc). 
+
+Similarly, Goalminsolve calls the Minweight SAT solver MinWeight by Paolo Liberatore 
+from University of Rome (http://www.dis.uniroma1.it/~liberato/mindp/).
+MinWeight is called as a linux command, and the dialogue between Goalsolver and MinWeight 
+is performed via files. The correctness of Goalsolver relies on that of MinWeight. 
+
+In order to make Goalminsolve recognizes the output of MinWeight, I've slightly modified 
+the output routines of minweight in the file minweight.c.
+To see the modification done, you can go in the Minweight directory and digit:
+
+PROMPT>> diff minweight.c minweight.c.old
+142,147d141
+< /*  MODIFIED BY ROBERTO SEBASTIANI  */
+< /*  TO PRINT OUT THE MODEL FOUND  */
+< /*   if( k<0 ) */
+< /*     printf("Inconsistente\n"); */
+< /*   else  */
+< /*     printf("Consistente: peso=%d\n",k); */
+149,161c143,145
+<     printf(" unsatisfiable \n");
+<   else 
+<   {
+<    int i;
+<    printf(" weight=%d, satisfiable \n",k);
+<    for(i=1; i<=cl->numvar; i++)
+<      if(valueofvar(i,stt)==1)
+<        printf("%d %",i);
+<      else
+<        printf("%d %",-i);
+<    printf("\n");
+<   }
+< 
+---
+>     printf("Inconsistente\n");
+>   else
+>     printf("Consistente: peso=%d\n",k);
+168c152
+< /*   fprintf(stderr,"%4d ",endtime-starttime); */
+---
+>   fprintf(stderr,"%4d ",endtime-starttime);
+192,193d175
+< 
+<   
+
+Goalminsolve recognizes the output of the current (March 13th 2003) version of of Minweight
+(whose code can be found in the directory "Minweight"). For different versions of Minweight,
+it may be the case that one has to modify the minweight.c as above and possibly readapt the decoder
+ (file decoder.cc).
+
+EVERYTHING IN THIS VERSION IS SUBJECT TO CHANGE. So, don't be surprised
+if next version don't have some of the options and/or have uncompatible
+functions. It's only served as a demontration.
+
+Known potential problems: 
+
+1. The parser does not check the syntax very strictly.
+Thus, if the input has wrong format, the solver may generate problems.
+
+2. Some counters may overflow for (VERY) big examples. If so, change the constants in
+goal.h and graph.h.
+
+Please report bugs and feedback to rseba@dit.unitn.it.
+
+Roberto Sebastiani
+University of Trento
+
+
+REMARK: 
+Before starting using the tool, you must modify the string "chaffcommand" in config.h 
+in order to tell the system the absoulte path of executable file of chaff. 
+
+To install, 
+- go into Chaff and Minweight directories and type "make"
+- go into Goalsolve directory and type "make"
+> "make"        ==> generates both goalsolve and goalminsolve
+> "make clean"  ==> removes goalsove, goalminsolve and object files

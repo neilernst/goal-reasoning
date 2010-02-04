@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 
+%%%              GOALSOLVE & GOALMINSOLVE
+%%% 
+%%%                     USER GUIDE   
+%%% 
+%%%                by Roberto Sebastiani
+%%%                 University of Trento
+%%%                  rseba@dit.unitn.it
+%%%             http://www.dit.unitn.it/~rseba
+%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+SYNTAX:
+
+----------------------------- GOALSOLVE ---------------------------------------------------------------
+
+PROMPT>> goalsolve -n|-w|-m|-s <graphfile> <desideratafile> [<inputnodefile>]
+
+-n :         no conflict avoinding
+-w (weak):   avoinding conflicts in the form  'TSg and TDg'
+-m (medium): avoinding conflicts in the forms 'TSg and TDg', 'TSg and PDg', 'PSg and TDg'
+-s (strong): avoinding conflicts in the forms 'TSg and TDg', 'TSg and PDg', 'PSg and TDg', 'PSg and PDg'
+
+REMARK: if no <inputnodefile> is provided, then  by default
+all goals with no incoming boolean relation are considered as input nodes
+
+
+----------------------------- GOALMINSOLVE ------------------------------------------------------------
+
+PROMPT>> goalminsolve -n|-w|-m|-s <graphfile> <desideratafile> [<inputnodefile> [<weightfile>]]
+
+-n :         no conflict avoinding
+-w (weak):   avoinding conflicts in the form  'TSg and TDg'
+-m (medium): avoinding conflicts in the forms 'TSg and TDg', 'TSg and PDg', 'PSg and TDg'
+-s (strong): avoinding conflicts in the forms 'TSg and TDg', 'TSg and PDg', 'PSg and TDg', 'PSg and PDg'
+
+REMARKS:
+1) if no <inputnodefile> is provided, then  by default
+all goals with no incoming boolean relation are considered as input nodes
+2) if no <weightfile> is provided, then  by default
+all input goals are assigned the following default weights: ITS,ITD=2,IPS,IPD=1, all others = 0
+
+----------------------------- FORMATS OF THE FILES ------------------------------------------------------------
+
+FORMAT OF <graphfile>:
+=======================
+
+<GRAPHFILE> ::=
+D <goal number> <relation number>
+{<GOAL>}^<goal number>
+{<RELATION>}^<relation number>
+
+<GOAL> ::= 
+N NO NO
+
+<RELATION> ::= 
+R <REL_TYPE> <target goal index> {<source goal index>}*   
+
+<REL_TYPE> ::= AND | 
+               OR |
+               + |     ;; +s in the paper
+               - |     ;; -s in the paper
+               * |     ;; +d in the paper
+               / |     ;; -d in the paper
+               ++ |    ;; ++s in the paper
+               -- |    ;; --s in the paper
+               ** |    ;; ++d in the paper
+               //      ;; --d in the paper
+
+<target goal index> ::= <goal index>
+
+<source goal index> ::= <goal index>
+
+<goal index>::= 0 ... <goal number>-1
+
+
+FORMAT OF <desideratafile>:
+===========================
+
+<desideratafile> ::=
+{<clause>}*
+
+<clause>} ::= 
+<literal> { or <literal>}* ;
+
+<litaral> ::= 
+[-]<atom> 
+
+<atom>  ::= 
+<value> <goal index>
+
+<value> ::= 
+TS | TD | PS | PD 
+
+
+FORMAT OF <inputnodefile>:
+===========================
+
+<inputnodefile> ::= {<input goal index>}*
+
+<input goal index> ::= <goal index>
+
+
+FORMAT OF <inputnodefile>:
+===========================
+
+<weightfile> ::= 
+{<goal weigth list>}*
+
+<goal weigth list> ::= 
+<goal index> : <TS weight> <TD weight> <PS weight> <PD weight> ;
+
+<TS weight> ::= <integer>
+<TD weight> ::= <integer>
+<PS weight> ::= <integer>
+<PD weight> ::= <integer>
+
+
