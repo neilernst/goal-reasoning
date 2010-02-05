@@ -5,6 +5,7 @@ const int Pathlength = 1000;
 
 // SET TO THE CURRENT CHAFF & MINWEIGHT EXECUTABLE, ABSOLUTE PATH
 char chaffcommand[Pathlength] = "./asap";
+// char chaffcommand[Pathlength] = "/Users/nernst/Downloads/zchaff64/zchaff";
 char minweightcommand[Pathlength] = "./minweight";
 
 // DO NOT MODIFY !!

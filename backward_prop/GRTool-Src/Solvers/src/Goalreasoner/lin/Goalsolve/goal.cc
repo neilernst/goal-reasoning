@@ -40,7 +40,7 @@ val readval (fstream & f)
   else if (strcmp(token,"TS")==0 || strcmp(token,"TD")==0) 
     return T;
   else 
-    errmsg("Wrong value");
+    errmsg("Wrong goal value");
   return N;
 }
 
@@ -103,6 +103,7 @@ reltype readreltype (fstream & f)
 {
   char token [TKLENGTH];
   f >> token;
+  cout << "rel: " << token << "\n";
   if (strcmp(token,"AND")==0) return AND;
   if (strcmp(token,"OR")==0)  return OR;
   if (strcmp(token,"+")==0)   return PLUSS;
@@ -114,7 +115,7 @@ reltype readreltype (fstream & f)
   if (strcmp(token,"**")==0)  return PLUSPLUSD;
   if (strcmp(token,"//")==0)  return MINUSMINUSD;
   
-  errmsg("Wrong value");
+  errmsg("Wrong rel value");
   return AND;
 }
 
