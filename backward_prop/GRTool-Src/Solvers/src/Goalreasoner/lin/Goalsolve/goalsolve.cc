@@ -144,10 +144,10 @@ int main (int argc, char * argv[])
   cerr << "done.\n";
 
 // DECODING THE RESULT
-  chaffresultfile.open(chaffresultfilename,ios::in);
+  chaffresultfile.open(chaffresultfilename,ios::in); //ChaffResult
   if (chaffresultfile==NULL)
     errmsg(chaffresultfilename,": no such file produced.");
-  resultfile.open(resultfilename,ios::out);
+  resultfile.open(resultfilename,ios::out); //Result
   if (resultfile==NULL) 
     errmsg("Cannot open file: ",chaffresultfilename);
 

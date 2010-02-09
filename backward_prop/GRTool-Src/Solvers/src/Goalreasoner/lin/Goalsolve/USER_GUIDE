@@ -102,7 +102,7 @@ FORMAT OF <inputnodefile>:
 <input goal index> ::= <goal index>
 
 
-FORMAT OF <inputnodefile>:
+FORMAT OF <weightfile>:
 ===========================
 
 <weightfile> ::= 

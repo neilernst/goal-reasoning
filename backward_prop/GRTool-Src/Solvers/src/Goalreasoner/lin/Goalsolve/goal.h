@@ -4,7 +4,7 @@
 
 // CONSTANTS: 
 
-const int MAXINCOMING = 20;  // max num of incoming relations for a goal
+const int MAXINCOMING = 30;  // max num of incoming relations for a goal
 const int MAXSOURCES = 20;  // max num of source goals for a relation
 const int TKLENGTH = 100;
 
